@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Número de identificação:</strong>
+  <%= @reprodutor.numid %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @reprodutor.nome %>
+</p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @reprodutor.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_reprodutor_path(@reprodutor) %> |
+<%= link_to 'Back', reprodutores_path %>

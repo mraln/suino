@@ -1,0 +1,29 @@
+<h1>Listing reprodutores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Número de identificação</th>
+      <th>Nome</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reprodutores.each do |reprodutor| %>
+      <tr>
+        <td><%= reprodutor.numid %></td>
+        <td><%= reprodutor.nome %></td>
+        <td><%= link_to 'Show', reprodutor %></td>
+        <td><%= link_to 'Edit', edit_reprodutor_path(reprodutor) %></td>
+        <td><%= link_to 'Destroy', reprodutor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reprodutor', new_reprodutor_path %>

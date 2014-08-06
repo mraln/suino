@@ -1,0 +1,36 @@
+<%= form_for(@matriz) do |f| %>
+  <% if @matriz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@matriz.errors.count, "error") %> prohibited this matriz from being saved:</h2>
+
+      <ul>
+      <% @matriz.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= field_set_tag do %>
+    
+    <div class='control-group'>
+      <%= f.label :numid, class: 'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :numid, class: 'text_field' %>
+      <div>
+    </div>
+
+
+    <div class='control-group'>
+      <%= f.label :raca, class: 'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :raca, class: 'text_field' %>
+      <div>
+    </div>
+
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<h1>Listing matrizes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Número de identificação</th>
+      <th>Raça</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @matrizes.each do |matriz| %>
+      <tr>
+        <td><%= matriz.numid %></td>
+        <td><%= matriz.raca %></td>
+        <td><%= link_to 'Show', matriz %></td>
+        <td><%= link_to 'Edit', edit_matriz_path(matriz) %></td>
+        <td><%= link_to 'Destroy', matriz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Matriz', new_matriz_path %>

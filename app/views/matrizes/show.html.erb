@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Número de identificação:</strong>
+  <%= @matriz.numid %>
+</p>
+
+<p>
+  <strong>Raça:</strong>
+  <%= @matriz.raca %>
+</p>
+
+<%= link_to 'Edit', edit_matriz_path(@matriz) %> |
+<%= link_to 'Back', matrizes_path %>
