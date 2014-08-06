@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  matriz_id: 
+  reprodutor_id: 
+  cobertura: 2014-08-05 00:26:03
+  previsao_parto: 2014-08-05 00:26:03
+  data_parto: 2014-08-05 00:26:03
+  qtde_filhos: 1
+  mortalidade: 1
+  total_desmamado: 1
+  data_desmame: 2014-08-05 00:26:03
+  retorno_cio: 2014-08-05 00:26:03
+
+two:
+  matriz_id: 
+  reprodutor_id: 
+  cobertura: 2014-08-05 00:26:03
+  previsao_parto: 2014-08-05 00:26:03
+  data_parto: 2014-08-05 00:26:03
+  qtde_filhos: 1
+  mortalidade: 1
+  total_desmamado: 1
+  data_desmame: 2014-08-05 00:26:03
+  retorno_cio: 2014-08-05 00:26:03

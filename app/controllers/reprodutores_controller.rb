@@ -1,0 +1,2 @@
+class ReprodutoresController < ApplicationController
+end
