@@ -1,29 +1,40 @@
-<h1>Listing reprodutores</h1>
-
-<table>
+<%- model_class = Reprodutor -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Número de identificação</th>
-      <th>Nome</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:numid) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:descricao) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @reprodutores.each do |reprodutor| %>
       <tr>
+        <td><%= link_to reprodutor.id, reprodutor_path(reprodutor) %></td>
         <td><%= reprodutor.numid %></td>
         <td><%= reprodutor.nome %></td>
-        <td><%= link_to 'Show', reprodutor %></td>
-        <td><%= link_to 'Edit', edit_reprodutor_path(reprodutor) %></td>
-        <td><%= link_to 'Destroy', reprodutor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= reprodutor.descricao %></td>
+        <td><%=l reprodutor.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_reprodutor_path(reprodutor), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      reprodutor_path(reprodutor),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Reprodutor', new_reprodutor_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_reprodutor_path,
+            :class => 'btn btn-primary' %>

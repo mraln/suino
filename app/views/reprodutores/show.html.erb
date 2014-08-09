@@ -1,19 +1,25 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Reprodutor -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Número de identificação:</strong>
-  <%= @reprodutor.numid %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:numid) %>:</strong></dt>
+  <dd><%= @reprodutor.numid %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
+  <dd><%= @reprodutor.nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:descricao) %>:</strong></dt>
+  <dd><%= @reprodutor.descricao %></dd>
+</dl>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @reprodutor.nome %>
-</p>
-
-<p>
-  <strong>Descrição:</strong>
-  <%= @reprodutor.descricao %>
-</p>
-
-<%= link_to 'Edit', edit_reprodutor_path(@reprodutor) %> |
-<%= link_to 'Back', reprodutores_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              reprodutores_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_reprodutor_path(@reprodutor), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              reprodutor_path(@reprodutor),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
