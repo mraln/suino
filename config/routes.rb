@@ -13,7 +13,12 @@ ControleSuino::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :reprodutores
-  resources :matrizes
+  resources :matrizes do
+    resources :partos
+  end
+
+  get 'configuracoes' => 'configuracoes#edit'
+  post 'configuracoes' => 'configuracoes#update'
 
   # Example resource route with options:
   #   resources :products do

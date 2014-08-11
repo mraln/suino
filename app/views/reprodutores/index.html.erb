@@ -20,7 +20,7 @@
         <td><%= reprodutor.numid %></td>
         <td><%= reprodutor.nome %></td>
         <td><%= reprodutor.descricao %></td>
-        <td><%=l reprodutor.created_at %></td>
+        <td><%= show_field_date(reprodutor.created_at) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_reprodutor_path(reprodutor), :class => 'btn btn-mini' %>

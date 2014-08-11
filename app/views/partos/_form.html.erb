@@ -1,0 +1,71 @@
+<%-
+  options = { :html => { :class => 'form-horizontal' } }
+  if @parto.new_record?
+    options.merge!(:url => matriz_partos_path(@matriz))
+  else
+    options.merge!(:url => matriz_parto_path(@matriz, @parto))
+  end
+-%>
+
+<%= form_for @parto, options do |f| %>
+  <div class="control-group">
+    <%= f.label :reprodutor_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :reprodutor_id, options_from_collection_for_select(Reprodutor.all, :id, :nome), :class => 'select_field'  %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cobertura, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_field :cobertura, :class => 'date_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :previsao_parto, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_field :previsao_parto, :class => 'date_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :data_parto, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_field :data_parto, :class => 'date_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :qtde_filhos, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :qtde_filhos, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :mortalidade, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :mortalidade, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :total_desmamado, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :total_desmamado, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :data_desmame, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_field :data_desmame, :class => 'date_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :retorno_cio, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_field :retorno_cio, :class => 'date_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                matriz_partos_path(@matriz), :class => 'btn' %>
+  </div>
+<% end %>

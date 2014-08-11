@@ -21,36 +21,3 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
-
-<h4>Partos</h4>
-<hr>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= Parto.human_attribute_name(:reprodutor) %></th>
-      <th><%= Parto.human_attribute_name(:cobertura) %></th>
-      <th><%= Parto.human_attribute_name(:previsao_parto) %></th>
-      <th><%= Parto.human_attribute_name(:data_parto) %></th>
-      <th><%= Parto.human_attribute_name(:qtde_filhos) %></th>
-      <th><%= Parto.human_attribute_name(:mortalidade) %></th>
-      <th><%= Parto.human_attribute_name(:total_desmamado) %></th>
-      <th><%= Parto.human_attribute_name(:data_desmame) %></th>
-      <th><%= Parto.human_attribute_name(:retorno_cio) %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @matriz.partos.each do |parto| %>
-      <tr>
-        <td><%= parto.reprodutor.name %></td>
-        <td><%= parto.cobertura %></td>
-        <td><%= parto.previsao_parto %></td>
-        <td><%= parto.data_parto %></td>
-        <td><%= parto.qtde_filhos %></td>
-        <td><%= parto.mortalidade %></td>
-        <td><%= parto.total_desmamado %></td>
-        <td><%= parto.data_desmame %></td>
-        <td><%= parto.retorno_cio %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
