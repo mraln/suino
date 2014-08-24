@@ -3,17 +3,19 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
+<%= @parto.inspect %>
+
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:matriz_id) %>:</strong></dt>
-  <dd><%= @parto.matriz_id %></dd>
+  <dd><%= @parto.matriz.nome %></dd>
   <dt><strong><%= model_class.human_attribute_name(:reprodutor_id) %>:</strong></dt>
-  <dd><%= @parto.reprodutor_id %></dd>
+  <dd><%= @parto.reprodutor.nome %></dd>
   <dt><strong><%= model_class.human_attribute_name(:cobertura) %>:</strong></dt>
-  <dd><%= @parto.cobertura %></dd>
+  <dd><%= l(@parto.cobertura) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:previsao_parto) %>:</strong></dt>
-  <dd><%= @parto.previsao_parto %></dd>
+  <dd><%= l(@parto.previsao_parto) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:data_parto) %>:</strong></dt>
-  <dd><%= @parto.data_parto %></dd>
+  <dd><%= l(@parto.data_parto) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:qtde_filhos) %>:</strong></dt>
   <dd><%= @parto.qtde_filhos %></dd>
   <dt><strong><%= model_class.human_attribute_name(:mortalidade) %>:</strong></dt>
@@ -21,9 +23,9 @@
   <dt><strong><%= model_class.human_attribute_name(:total_desmamado) %>:</strong></dt>
   <dd><%= @parto.total_desmamado %></dd>
   <dt><strong><%= model_class.human_attribute_name(:data_desmame) %>:</strong></dt>
-  <dd><%= @parto.data_desmame %></dd>
+  <dd><%= l(@parto.data_desmame) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:retorno_cio) %>:</strong></dt>
-  <dd><%= @parto.retorno_cio %></dd>
+  <dd><%= l(@parto.retorno_cio) %></dd>
 </dl>
 
 <div class="form-actions">

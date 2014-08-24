@@ -20,6 +20,8 @@ ControleSuino::Application.routes.draw do
   get 'configuracoes' => 'configuracoes#edit'
   post 'configuracoes' => 'configuracoes#update'
 
+  get 'partos_pesquisa' => 'partos_pesquisa#index'
+
   # Example resource route with options:
   #   resources :products do
   #     member do

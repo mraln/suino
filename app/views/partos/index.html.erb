@@ -3,14 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:numid) %>:</strong></dt>
-  <dd><%= @matriz.numid %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:raca) %>:</strong></dt>
-  <dd><%= @matriz.raca %></dd>
-</dl>
-
-
+<%= render 'matrizes/show_details', model_class: Matriz %>
 
 <%- model_class = Parto -%>
 <div class="page-header">
@@ -37,14 +30,14 @@
       <tr>
         <td><%= link_to parto.id, matriz_parto_path(@matriz, parto) %></td>
         <td><%= parto.reprodutor.nome %></td>
-        <td><%= show_field_date(parto.cobertura) %></td>
-        <td><%= show_field_date(parto.previsao_parto) %></td>
-        <td><%= show_field_date(parto.data_parto) %></td>
+        <td><%= l(parto.cobertura) %></td>
+        <td><%= l(parto.previsao_parto) %></td>
+        <td><%= l(parto.data_parto) %></td>
         <td><%= parto.qtde_filhos %></td>
         <td><%= parto.mortalidade %></td>
-        <td><%= show_field_date(parto.total_desmamado) %></td>
-        <td><%= show_field_date(parto.data_desmame) %></td>
-        <td><%= show_field_date(parto.retorno_cio) %></td>
+        <td><%= parto.total_desmamado %></td>
+        <td><%= l(parto.data_desmame) %></td>
+        <td><%= l(parto.retorno_cio) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_matriz_parto_path(@matriz, parto), :class => 'btn btn-mini' %>

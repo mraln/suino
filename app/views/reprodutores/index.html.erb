@@ -8,8 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:numid) %></th>
       <th><%= model_class.human_attribute_name(:nome) %></th>
-      <th><%= model_class.human_attribute_name(:descricao) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:raca) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -19,8 +18,7 @@
         <td><%= link_to reprodutor.id, reprodutor_path(reprodutor) %></td>
         <td><%= reprodutor.numid %></td>
         <td><%= reprodutor.nome %></td>
-        <td><%= reprodutor.descricao %></td>
-        <td><%= show_field_date(reprodutor.created_at) %></td>
+        <td><%= reprodutor.raca %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_reprodutor_path(reprodutor), :class => 'btn btn-mini' %>

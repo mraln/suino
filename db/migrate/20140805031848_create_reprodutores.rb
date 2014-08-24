@@ -3,7 +3,7 @@ class CreateReprodutores < ActiveRecord::Migration
     create_table :reprodutores do |t|
       t.string :numid, index: true
       t.string :nome
-      t.string :descricao
+      t.string :raca
 
       t.timestamps
     end

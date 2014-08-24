@@ -1,0 +1,32 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= Parto.human_attribute_name(:matriz_id) %></th>
+      <th><%= Parto.human_attribute_name(:reprodutor_id) %></th>
+      <th><%= Parto.human_attribute_name(:cobertura) %></th>
+      <th><%= Parto.human_attribute_name(:previsao_parto) %></th>
+      <th><%= Parto.human_attribute_name(:data_parto) %></th>
+      <th><%= Parto.human_attribute_name(:qtde_filhos) %></th>
+      <th><%= Parto.human_attribute_name(:mortalidade) %></th>
+      <th><%= Parto.human_attribute_name(:total_desmamado) %></th>
+      <th><%= Parto.human_attribute_name(:data_desmame) %></th>
+      <th><%= Parto.human_attribute_name(:retorno_cio) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @partos.each do |parto| %>
+      <tr>
+        <td><%= parto.matriz.nome %></td>
+        <td><%= parto.reprodutor.nome %></td>
+        <td><%= l(parto.cobertura) %></td>
+        <td><%= l(parto.previsao_parto) %></td>
+        <td><%= l(parto.data_parto) %></td>
+        <td><%= parto.qtde_filhos %></td>
+        <td><%= parto.mortalidade %></td>
+        <td><%= parto.total_desmamado %></td>
+        <td><%= l(parto.data_desmame) %></td>
+        <td><%= l(parto.retorno_cio) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -35,6 +35,7 @@ end
 group :development do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'awesome_print'
+  gem 'pry'
 end
 
 # Use ActiveModel has_secure_password

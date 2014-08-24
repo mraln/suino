@@ -7,8 +7,8 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:numid) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
       <th><%= model_class.human_attribute_name(:raca) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,8 +17,8 @@
       <tr>
         <td><%= link_to matriz.id, matriz_path(matriz) %></td>
         <td><%= matriz.numid %></td>
+        <td><%= matriz.nome %></td>
         <td><%= matriz.raca %></td>
-        <td><%= show_field_date(matriz.created_at) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_matriz_path(matriz), :class => 'btn btn-mini' %>

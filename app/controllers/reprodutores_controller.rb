@@ -69,6 +69,6 @@ class ReprodutoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reprodutor_params
-      params[:reprodutor].permit(:numid, :nome, :descricao)
+      params[:reprodutor].permit(:numid, :nome, :raca)
     end
 end

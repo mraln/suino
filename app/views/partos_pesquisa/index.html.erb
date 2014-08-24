@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1><%= t('.title') %></h1>
+</div>
+
+<%= form_tag partos_pesquisa_path, method: :get do %>
+  <dl class="dl-horizontal">
+    <dt><strong>Matriz:</strong></dt>
+    <dd><%= select_tag :matriz, options_from_collection_for_select(Matriz.all, :id, :nome, params[:matriz]), include_blank: true %></dd>
+    
+    <dt><strong>Reprodutor:</strong></dt>
+    <dd><%= select_tag :reprodutor, options_from_collection_for_select(Reprodutor.all, :id, :nome, params[:reprodutor]), include_blank: true %></dd>
+    
+    <dt><strong>Cobertura:</strong></dt>
+    <dd><%= t('.from') %><%= date_field_tag :cobertura_inicio, params[:cobertura_inicio] %> <%= t('.to') %> <%= date_field_tag :cobertura_fim, params[:cobertura_fim] %></dd>
+
+    <dt><strong>Previsão parto:</strong></dt>
+    <dd><%= t('.from') %><%= date_field_tag :previsao_parto_inicio, params[:previsao_parto_inicio] %> <%= t('.to') %> <%= date_field_tag :previsao_parto_fim, params[:previsao_parto_fim] %></dd>
+
+    <dt><strong>Data parto:</strong></dt>
+    <dd><%= t('.from') %><%= date_field_tag :data_parto_inicio, params[:data_parto_inicio] %> <%= t('.to') %> <%= date_field_tag :data_parto_fim, params[:data_parto_fim] %></dd>
+    
+    <dt><strong>Data desmame:</strong></dt>
+    <dd><%= t('.from') %><%= date_field_tag :data_desmame_inicio, params[:data_desmame_inicio] %> <%= t('.to') %> <%= date_field_tag :data_desmame_fim, params[:data_desmame_fim] %></dd>
+
+    <dt><strong>Retorno ao cio:</strong></dt>
+    <dd><%= t('.from') %><%= date_field_tag :retorno_cio_inicio, params[:retorno_cio_inicio] %> <%= t('.to') %> <%= date_field_tag :retorno_cio_fim, params[:retorno_cio_fim] %></dd>
+  </dl>
+  <div class="form-actions">
+    <%= submit_tag 'Pesquisar', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<% if @partos.present? %>
+  <%= render 'partos' %>
+<% end %>

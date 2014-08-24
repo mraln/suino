@@ -8,8 +8,8 @@
   <dd><%= @reprodutor.numid %></dd>
   <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
   <dd><%= @reprodutor.nome %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:descricao) %>:</strong></dt>
-  <dd><%= @reprodutor.descricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:raca) %>:</strong></dt>
+  <dd><%= @reprodutor.raca %></dd>
 </dl>
 
 <div class="form-actions">
@@ -23,3 +23,43 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
+
+<div class="page-header">
+  <h4>Seus partos</h4>
+</div>
+<% if @reprodutor.partos.count == 0 %>
+  <p>
+    Nenhum parto para este reprodutor
+  </p>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:matriz_id) %></th>
+        <th><%= model_class.human_attribute_name(:cobertura) %></th>
+        <th><%= model_class.human_attribute_name(:previsao_parto) %></th>
+        <th><%= model_class.human_attribute_name(:data_parto) %></th>
+        <th><%= model_class.human_attribute_name(:qtde_filhos) %></th>
+        <th><%= model_class.human_attribute_name(:mortalidade) %></th>
+        <th><%= model_class.human_attribute_name(:total_desmamado) %></th>
+        <th><%= model_class.human_attribute_name(:data_desmame) %></th>
+        <th><%= model_class.human_attribute_name(:retorno_cio) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reprodutor.partos.each do |parto| %>
+        <tr>
+          <td><%= parto.matriz.nome %></td>
+          <td><%= l(parto.cobertura) %></td>
+          <td><%= l(parto.previsao_parto) %></td>
+          <td><%= l(parto.data_parto) %></td>
+          <td><%= parto.qtde_filhos %></td>
+          <td><%= parto.mortalidade %></td>
+          <td><%= parto.total_desmamado %></td>
+          <td><%= l(parto.data_desmame) %></td>
+          <td><%= l(parto.retorno_cio) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

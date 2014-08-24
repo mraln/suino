@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20140805032603) do
 
   create_table "matrizes", force: true do |t|
     t.string   "numid"
+    t.string   "nome"
     t.string   "raca"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -23,14 +24,14 @@ ActiveRecord::Schema.define(version: 20140805032603) do
   create_table "partos", force: true do |t|
     t.integer  "matriz_id"
     t.integer  "reprodutor_id"
-    t.datetime "cobertura"
-    t.datetime "previsao_parto"
-    t.datetime "data_parto"
+    t.date     "cobertura"
+    t.date     "previsao_parto"
+    t.date     "data_parto"
     t.integer  "qtde_filhos"
     t.integer  "mortalidade"
     t.integer  "total_desmamado"
-    t.datetime "data_desmame"
-    t.datetime "retorno_cio"
+    t.date     "data_desmame"
+    t.date     "retorno_cio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140805032603) do
   create_table "reprodutores", force: true do |t|
     t.string   "numid"
     t.string   "nome"
-    t.string   "descricao"
+    t.string   "raca"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

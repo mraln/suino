@@ -25,7 +25,7 @@ class PartosController < ApplicationController
   # POST /partos
   # POST /partos.json
   def create
-    @parto = @matriz.partos.new(parto_params)
+    @parto = @matriz.partos.new(parto_params_on_create)
 
     respond_to do |format|
       if @parto.save
@@ -42,7 +42,7 @@ class PartosController < ApplicationController
   # PATCH/PUT /partos/1.json
   def update
     respond_to do |format|
-      if @parto.update(parto_params)
+      if @parto.update(parto_params_on_update)
         format.html { redirect_to matriz_parto_path(@matriz, @parto), notice: 'Parto was successfully updated.' }
         format.json { head :no_content }
       else
@@ -73,7 +73,11 @@ class PartosController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def parto_params
-      params.require(:parto).permit(:reprodutor_id, :cobertura, :previsao_parto, :data_parto, :qtde_filhos, :mortalidade, :total_desmamado, :data_desmame, :retorno_cio)
+    def parto_params_on_create
+      params.require(:parto).permit(:reprodutor_id, :cobertura)
+    end
+
+    def parto_params_on_update
+      params.require(:parto).permit(:data_parto, :qtde_filhos, :mortalidade)
     end
 end

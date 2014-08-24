@@ -1,10 +1,9 @@
 module ApplicationHelper
-
-  def show_field_date field_date
-    if field_date.is_a?(ActiveSupport::TimeWithZone)
-      field_date.strftime("%d/%m/%Y")
+  def l date
+    if date.present?
+      I18n.l date
     else
-      field_date
+      nil
     end
   end
 end
